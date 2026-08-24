@@ -163,6 +163,52 @@
   }
   .norm-chip strong{color:var(--text); font-weight:600;}
 
+  /* SECTION 2b — Gestión Ambiental */
+  .amb-grid{display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-bottom:44px;}
+  @media(max-width:860px){.amb-grid{grid-template-columns:1fr;}}
+  .amb-card{background:var(--bg-panel); border:1px solid var(--line); border-top:3px solid var(--green); padding:26px;}
+  .amb-card h4{font-size:15px; margin-bottom:14px;}
+  .amb-card ul{list-style:none; display:flex; flex-direction:column; gap:10px;}
+  .amb-card li{font-size:14px; color:var(--text-dim); padding-left:16px; position:relative;}
+  .amb-card li::before{content:"→"; position:absolute; left:0; color:var(--green);}
+  .pmcc-row{display:flex; flex-direction:column; gap:0; margin-bottom:44px;}
+  .pmcc-item{
+    display:grid; grid-template-columns:150px 1fr; gap:20px; align-items:center;
+    border-bottom:1px solid var(--line); padding:18px 0;
+  }
+  .pmcc-item:first-child{border-top:1px solid var(--line);}
+  .pmcc-tag{
+    font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.03em; padding:8px 12px;
+    text-align:center; border-radius:2px; color:#fff;
+  }
+  .pmcc-item:nth-child(1) .pmcc-tag{background:var(--green);}
+  .pmcc-item:nth-child(2) .pmcc-tag{background:var(--blue);}
+  .pmcc-item:nth-child(3) .pmcc-tag{background:var(--yellow); color:#111;}
+  .pmcc-item:nth-child(4) .pmcc-tag{background:var(--red);}
+  .pmcc-item p{font-size:14px; color:var(--text-dim);}
+  .pmcc-item strong{color:var(--text);}
+
+  /* SECTION 6 — Comités del SG-SST */
+  .comite-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  @media(max-width:900px){.comite-grid{grid-template-columns:1fr;}}
+  .comite-card{background:var(--bg-panel); border:1px solid var(--line); display:flex; flex-direction:column;}
+  .comite-top{padding:24px 24px 20px; border-bottom:1px solid var(--line);}
+  .comite-icon{
+    width:40px; height:40px; border-radius:2px; display:flex; align-items:center; justify-content:center;
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:13px; color:#fff; margin-bottom:16px;
+  }
+  .comite-card:nth-child(1) .comite-icon{background:var(--blue);}
+  .comite-card:nth-child(2) .comite-icon{background:var(--yellow); color:#111;}
+  .comite-card:nth-child(3) .comite-icon{background:var(--red);}
+  .comite-top h4{font-size:16px; margin-bottom:6px; line-height:1.2;}
+  .comite-top .sigla{font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--text-dim);}
+  .comite-body{padding:22px 24px; flex:1; display:flex; flex-direction:column; gap:18px;}
+  .comite-body h5{font-size:11px; font-family:'IBM Plex Mono',monospace; text-transform:uppercase; letter-spacing:.05em; color:var(--text-dim); margin-bottom:8px;}
+  .comite-body p{font-size:13.5px; color:var(--text-dim);}
+  .comite-body ul{list-style:none; display:flex; flex-direction:column; gap:7px;}
+  .comite-body li{font-size:13px; color:var(--text-dim); padding-left:14px; position:relative;}
+  .comite-body li::before{content:"▸"; position:absolute; left:0; color:var(--yellow);}
+
   /* SECTION 3 — Legislación e identificación de peligros */
   .leg-grid{display:grid; grid-template-columns:.9fr 1.1fr; gap:40px;}
   @media(max-width:860px){.leg-grid{grid-template-columns:1fr;}}
@@ -215,6 +261,18 @@
   .case-head{display:flex; justify-content:space-between; align-items:flex-start; gap:20px; flex-wrap:wrap; border-bottom:1px solid var(--line); padding-bottom:22px; margin-bottom:26px;}
   .case-head h3{font-size:22px; max-width:520px;}
   .case-badge{font-family:'IBM Plex Mono',monospace; font-size:11px; background:var(--red); color:#fff; padding:5px 10px; border-radius:2px; white-space:nowrap;}
+  .case-badge.badge-copasst{background:var(--blue);}
+  .case-badge.badge-ccl{background:var(--yellow); color:#111;}
+  .case-badge.badge-brigada{background:var(--red);}
+  .comm-label{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.05em; text-transform:uppercase;
+    color:var(--text-dim); margin:34px 0 12px; display:flex; align-items:center; gap:10px;
+  }
+  .comm-label::before{content:""; width:10px; height:10px; border-radius:50%; flex-shrink:0;}
+  .comm-label.l-copasst::before{background:var(--blue);}
+  .comm-label.l-ccl::before{background:var(--yellow);}
+  .comm-label.l-brigada::before{background:var(--red);}
+  .comm-label:first-child{margin-top:0;}
   .case-block{margin-bottom:26px;}
   .case-block:last-child{margin-bottom:0;}
   .case-block h4{
@@ -326,8 +384,10 @@
     <nav class="links" id="navLinks">
       <a href="#accidentes">Accidentes</a>
       <a href="#gestion">Gestión SG-SST</a>
+      <a href="#ambiental">Gestión ambiental</a>
       <a href="#legislacion">Legislación</a>
       <a href="#control">Medidas de control</a>
+      <a href="#comites">Comités</a>
       <a href="#comite">Comité · Casos</a>
       <a href="#deepwater">Caso Deepwater Horizon</a>
     </nav>
@@ -417,11 +477,61 @@
   </div>
 </section>
 
-<!-- 3. LEGISLACION E IDENTIFICACION DE PELIGROS -->
+<!-- 3. GESTIÓN AMBIENTAL -->
+<section id="ambiental">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">03 / Componente ambiental</span>
+      <h2>Gestión ambiental</h2>
+      <p>La gestión ambiental identifica los aspectos de una actividad que interactúan con el entorno y evalúa sus impactos, para intervenirlos siguiendo la misma lógica preventiva que la seguridad y salud en el trabajo.</p>
+    </div>
+    <div class="amb-grid">
+      <div class="amb-card">
+        <h4>Aspectos ambientales típicos</h4>
+        <ul>
+          <li>Generación de residuos sólidos, peligrosos y reciclables.</li>
+          <li>Consumo de agua y energía en los procesos.</li>
+          <li>Emisiones atmosféricas y generación de ruido.</li>
+          <li>Vertimientos de aguas residuales.</li>
+          <li>Uso y almacenamiento de sustancias químicas.</li>
+        </ul>
+      </div>
+      <div class="amb-card" style="border-top-color:var(--red);">
+        <h4>Impactos ambientales asociados</h4>
+        <ul>
+          <li>Contaminación del suelo, agua y aire.</li>
+          <li>Agotamiento de recursos naturales no renovables.</li>
+          <li>Afectación de fauna, flora y ecosistemas cercanos.</li>
+          <li>Alteración del paisaje y pérdida de hábitats.</li>
+          <li>Riesgos para la salud pública de comunidades vecinas.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-head" style="margin-bottom:24px;">
+      <h3 style="font-size:15px; font-family:'IBM Plex Mono',monospace; letter-spacing:.05em; color:var(--yellow); text-transform:uppercase;">Jerarquía de manejo ambiental (PMCC)</h3>
+    </div>
+    <div class="pmcc-row">
+      <div class="pmcc-item"><span class="pmcc-tag">Prevenir</span><p><strong>Evitar el impacto antes de que ocurra:</strong> rediseñar procesos, sustituir insumos o planificar la actividad para que el aspecto ambiental no se genere.</p></div>
+      <div class="pmcc-item"><span class="pmcc-tag">Mitigar</span><p><strong>Reducir la magnitud del impacto</strong> cuando no puede evitarse por completo: control de emisiones, tratamiento de vertimientos, gestión de residuos.</p></div>
+      <div class="pmcc-item"><span class="pmcc-tag">Corregir</span><p><strong>Recuperar el ambiente afectado</strong> mediante acciones de restauración, remediación de suelos o descontaminación de fuentes hídricas.</p></div>
+      <div class="pmcc-item"><span class="pmcc-tag">Compensar</span><p><strong>Retribuir el impacto que no pudo evitarse, mitigarse ni corregirse,</strong> por ejemplo mediante reforestación o inversión en proyectos ambientales equivalentes.</p></div>
+    </div>
+
+    <div class="norms-strip">
+      <div class="norm-chip"><strong>Ley 99/1993</strong> Sistema Nacional Ambiental</div>
+      <div class="norm-chip"><strong>Decreto 1076/2015</strong> Único reglamentario del sector ambiente</div>
+      <div class="norm-chip"><strong>ISO 14001</strong> Sistema de gestión ambiental</div>
+      <div class="norm-chip"><strong>Decreto 4741/2005</strong> Gestión de residuos peligrosos</div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. LEGISLACION E IDENTIFICACION DE PELIGROS -->
 <section id="legislacion">
   <div class="wrap">
     <div class="section-head">
-      <span class="section-num">03 / Marco legal</span>
+      <span class="section-num">04 / Marco legal</span>
       <h2>Legislación laboral e identificación de peligros</h2>
       <p>El marco normativo colombiano establece las obligaciones del empleador y del trabajador, y define la metodología para identificar, valorar y priorizar los peligros presentes en cada puesto de trabajo.</p>
     </div>
@@ -447,7 +557,7 @@
 <section id="control" style="background:var(--bg-panel);">
   <div class="wrap">
     <div class="section-head">
-      <span class="section-num">04 / Jerarquía de controles</span>
+      <span class="section-num">05 / Jerarquía de controles</span>
       <h2>Medidas de control</h2>
       <p>Los controles se aplican en orden de eficacia: primero se busca eliminar o reducir el peligro en la fuente, y solo al final se recurre a la protección individual.</p>
     </div>
@@ -462,11 +572,102 @@
   </div>
 </section>
 
-<!-- 5. COMITÉ SST — CASOS -->
+<!-- 6. COMITÉS DEL SG-SST -->
+<section id="comites" style="background:var(--bg-panel);">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">06 / Estructura organizativa</span>
+      <h2>Los tres comités del SG-SST</h2>
+      <p>La normativa colombiana exige la conformación de tres comités que sostienen la operación del SG-SST dentro de la organización. Cada uno tiene una base legal, una conformación paritaria y funciones propias, y su articulación es la que da vida práctica al sistema de gestión.</p>
+    </div>
+    <div class="comite-grid">
+      <div class="comite-card">
+        <div class="comite-top">
+          <div class="comite-icon">01</div>
+          <h4>Comité Paritario de Seguridad y Salud en el Trabajo</h4>
+          <span class="sigla">COPASST</span>
+        </div>
+        <div class="comite-body">
+          <div>
+            <h5>Base legal</h5>
+            <p>Resolución 2013 de 1986 y Decreto 1072 de 2015, que lo definen como organismo de promoción y vigilancia del SG-SST.</p>
+          </div>
+          <div>
+            <h5>Conformación</h5>
+            <p>Representantes del empleador y de los trabajadores en número igual, elegidos estos últimos por votación.</p>
+          </div>
+          <div>
+            <h5>Funciones principales</h5>
+            <ul>
+              <li>Vigilar el cumplimiento del SG-SST y las normas de seguridad.</li>
+              <li>Investigar accidentes y enfermedades laborales.</li>
+              <li>Proponer actividades de capacitación y prevención.</li>
+              <li>Realizar inspecciones a los puestos de trabajo.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="comite-card">
+        <div class="comite-top">
+          <div class="comite-icon">02</div>
+          <h4>Comité de Convivencia Laboral</h4>
+          <span class="sigla">CCL</span>
+        </div>
+        <div class="comite-body">
+          <div>
+            <h5>Base legal</h5>
+            <p>Ley 1010 de 2006 y Resolución 652 de 2012, orientadas a prevenir el acoso laboral y proteger la salud mental en el trabajo.</p>
+          </div>
+          <div>
+            <h5>Conformación</h5>
+            <p>Igual número de representantes del empleador y de los trabajadores, con periodo de dos años.</p>
+          </div>
+          <div>
+            <h5>Funciones principales</h5>
+            <ul>
+              <li>Recibir y tramitar quejas de acoso o conflictos laborales.</li>
+              <li>Promover un ambiente de trabajo sano y respetuoso.</li>
+              <li>Adelantar acciones de mejora sobre convivencia.</li>
+              <li>Guardar confidencialidad de los casos atendidos.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="comite-card">
+        <div class="comite-top">
+          <div class="comite-icon">03</div>
+          <h4>Brigada / Comité de Emergencias</h4>
+          <span class="sigla">Plan de emergencias</span>
+        </div>
+        <div class="comite-body">
+          <div>
+            <h5>Base legal</h5>
+            <p>Decreto 1072 de 2015 y Decreto 2157 de 2017, que exigen un plan de prevención, preparación y respuesta ante emergencias.</p>
+          </div>
+          <div>
+            <h5>Conformación</h5>
+            <p>Trabajadores voluntarios capacitados, organizados en frentes de evacuación, primeros auxilios y control de incendios.</p>
+          </div>
+          <div>
+            <h5>Funciones principales</h5>
+            <ul>
+              <li>Elaborar y actualizar el plan de emergencias.</li>
+              <li>Coordinar simulacros de evacuación periódicos.</li>
+              <li>Atender emergencias reales: incendios, sismos, primeros auxilios.</li>
+              <li>Mantener y verificar los equipos de respuesta.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. COMITÉ SST — CASOS -->
 <section id="comite">
   <div class="wrap">
     <div class="section-head">
-      <span class="section-num">05 / Aplicación práctica</span>
+      <span class="section-num">07 / Aplicación práctica</span>
       <h2>Comité de Seguridad y Salud en el Trabajo</h2>
       <p>Cada aprendiz analizó un caso crítico de SST, identificó los problemas de fondo y construyó un plan de acción para el Comité, con medidas preventivas y correctivas, estrategias de comunicación y capacitación, recomendaciones de política interna, y una reflexión sobre su viabilidad.</p>
     </div>
@@ -617,12 +818,12 @@
 
 <div class="stripe thin"></div>
 
-<!-- 6. CASO AMPLIADO: DEEPWATER HORIZON -->
+<!-- 8. CASO AMPLIADO: DEEPWATER HORIZON -->
 <section id="deepwater" style="background:var(--bg-panel);">
   <div class="wrap">
     <div class="dw-hero">
       <div class="dw-hero-txt">
-        <span class="section-num">06 / Estudio de caso ampliado</span>
+        <span class="section-num">08 / Estudio de caso ampliado</span>
         <h2>Deepwater Horizon: aspectos, impactos y riesgos</h2>
         <p>Análisis del accidente ocurrido en la plataforma petrolera Deepwater Horizon, operada por Transocean bajo contrato de BP, que integra fallas técnicas, factores humanos, deficiencias de supervisión, impacto ambiental y consecuencias sobre la salud de trabajadores y comunidades. El caso demuestra que un accidente de gran magnitud rara vez tiene una sola causa.</p>
       </div>
@@ -819,9 +1020,11 @@
     </div>
     <div class="proj-grid">
       <div class="proj-item"><h4>Accidentes de trabajo</h4><p>Definición legal, clasificación y causas frecuentes.</p></div>
-      <div class="proj-item"><h4>Gestión ambiental y SST</h4><p>Ciclo PHVA y normas de referencia (ISO 45001 / 14001).</p></div>
+      <div class="proj-item"><h4>Gestión SG-SST</h4><p>Ciclo PHVA y normas de referencia (ISO 45001 / Decreto 1072).</p></div>
+      <div class="proj-item"><h4>Gestión ambiental</h4><p>Aspectos, impactos y jerarquía de manejo ambiental (PMCC).</p></div>
       <div class="proj-item"><h4>Legislación e identificación de peligros</h4><p>Marco normativo colombiano y metodología GTC 45.</p></div>
       <div class="proj-item"><h4>Medidas de control</h4><p>Jerarquía desde la eliminación del peligro hasta el EPP.</p></div>
+      <div class="proj-item"><h4>Los tres comités del SG-SST</h4><p>COPASST, Convivencia Laboral y Brigada de Emergencias.</p></div>
       <div class="proj-item"><h4>Caso Deepwater Horizon</h4><p>Matriz de aspectos, impactos y riesgos aplicada a un caso real.</p></div>
     </div>
   </div>
